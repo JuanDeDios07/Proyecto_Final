@@ -3,7 +3,6 @@ package edu.ilp.sysgailp.dao;
 import edu.ilp.sysgailp.entity.Escuela;
 import edu.ilp.sysgailp.entity.Estudiante;
 import org.springframework.data.domain.Page;
-
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

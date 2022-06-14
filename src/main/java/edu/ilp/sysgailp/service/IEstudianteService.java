@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface IEstudianteService {
 
+
+    List<Estudiante> ListaEstudiantes();
     //este metodo regitra un nuevo estudiante
     Estudiante guardarEstudiante(Estudiante estudiante);
 

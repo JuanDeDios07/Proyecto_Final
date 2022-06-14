@@ -18,13 +18,21 @@ public class EstudianteServiceImpl implements IEstudianteService {
 
     @Autowired
     private IEstudianteDao estudianteDao;
+
+    @Override
+    public List<Estudiante> ListaEstudiantes() {
+        return this.estudianteDao.findAll();
+    }
+
     @Override
     public Estudiante guardarEstudiante(Estudiante estudiante) {
+
         return this.estudianteDao.save(estudiante);
     }
 
     @Override
     public List<Estudiante> listaEstudiante(Escuela idescuela) {
+
         return this.estudianteDao.findByEscuela(idescuela);
     }
 
@@ -35,11 +43,13 @@ public class EstudianteServiceImpl implements IEstudianteService {
 
     @Override
     public void eliminarUnEstudiante(Long idestudiante) {
+
         this.estudianteDao.deleteById(idestudiante);
     }
 
     @Override
     public Estudiante obtenerEstudiante(String coddni) {
+
         return this.estudianteDao.obtenerEstudiante(coddni);
     }
 
