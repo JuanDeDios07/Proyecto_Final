@@ -18,14 +18,14 @@ public class AdministrativoController{
     private IAdministrativoService administrativoService;
     @Autowired
     private ObjectMapper objectMapper;
+
     //listar listaAdministartivo
     @GetMapping("/listaAdministartivo")
     public List<Administrativo> listaAdministartivo(){
-
         return this.administrativoService.ListaAdministrativo2022();
     }
-    //lista Administartivo por cargo
 
+    //lista Administartivo por cargo
 
     @GetMapping("/listaAdministartivo2022")
     public Administrativo listaAdministartivo(@RequestParam String codigo){

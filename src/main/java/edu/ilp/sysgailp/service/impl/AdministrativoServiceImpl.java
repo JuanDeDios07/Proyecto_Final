@@ -2,7 +2,6 @@ package edu.ilp.sysgailp.service.impl;
 
 import edu.ilp.sysgailp.dao.IAdministrativoDao;
 import edu.ilp.sysgailp.entity.Administrativo;
-import edu.ilp.sysgailp.entity.Escuela;
 import edu.ilp.sysgailp.service.IAdministrativoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +15,7 @@ public class AdministrativoServiceImpl implements IAdministrativoService {
 
     @Override
     public List<Administrativo> ListaAdministrativo2022() {
+
         return this.administrativoDao.findAll();
     }
 
@@ -31,13 +31,13 @@ public class AdministrativoServiceImpl implements IAdministrativoService {
 
     @Override
     public void eliminarUnadministrativo(Long idadministrativo) {
+
         this.administrativoDao.deleteById(idadministrativo);
     }
 
     @Override
     public List<Administrativo> obteneradministrativoPorApellidoNOM(String apenom) {
         return this.administrativoDao.obtenerAdministrativoPorApellidoNOM(apenom);
-        //this.docenteDao.obtenerDocentePorApellidoNOM(apenom);
     }
 
 
