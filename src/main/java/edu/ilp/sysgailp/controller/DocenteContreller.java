@@ -25,6 +25,7 @@ public class DocenteContreller {
     public List<Docente> listadocentes(){
         return this.docenteServicio.ListaDocente2022();
     }
+
     //listar docente por curso
     @GetMapping("/lista")
     public RestResponse listaDocente(@RequestParam String curso){

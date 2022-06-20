@@ -13,4 +13,5 @@ public interface IEscuelaService {
 
     //Buscar una escuela a traves de su codigo y denominacion
     Escuela buscarEscuelaByIdAndDenominacion(Long idescuela,String denominacion);
+    Escuela registraEscuela(Escuela escuela);
 }

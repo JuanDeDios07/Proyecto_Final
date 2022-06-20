@@ -27,4 +27,9 @@ public class EscuelaServiceImpl implements IEscuelaService {
         return this.escuelaDao.findByIdescuelaAndDenominacion(idescuela,nombre);
     }
 
+    @Override
+    public Escuela registraEscuela(Escuela escuela) {
+        return this.escuelaDao.save(escuela);
+    }
+
 }
