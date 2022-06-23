@@ -34,6 +34,7 @@ public interface IEstudianteService {
 
     //actualisaR registro de estudiantes
 
-
+//lista simple
+List<Estudiante> listarEstudiantes();
 
 }

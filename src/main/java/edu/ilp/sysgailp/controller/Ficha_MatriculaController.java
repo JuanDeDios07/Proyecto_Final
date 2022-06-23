@@ -3,6 +3,7 @@ package edu.ilp.sysgailp.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.ilp.sysgailp.entity.Docente;
+import edu.ilp.sysgailp.entity.Escuela;
 import edu.ilp.sysgailp.entity.fichaMatricula;
 import edu.ilp.sysgailp.payload.RestResponse;
 import edu.ilp.sysgailp.service.IFicha_MatriculaService;
@@ -21,10 +22,10 @@ public class Ficha_MatriculaController {
     private ObjectMapper objectMapper;
 
     //listar Ficha Matricula
-    @GetMapping("/listaFichaM")
-    public List<fichaMatricula> listaFichasMatricula() {
-        return this.fichaMatriculaService.ListaFichaMatricula2022();
-    }
+   // @GetMapping("/listaFichaM")
+    //public List<fichaMatricula> listaFichasMatricula() {
+       // return this.fichaMatriculaService.ListaFichaMatricula2022();
+    //}
 
     //listar docente por semestre
     @GetMapping("/lista")
@@ -78,5 +79,23 @@ public class Ficha_MatriculaController {
     @GetMapping("/listarBySemestreM/{appnombre}")
     public List<fichaMatricula> listarPorSemestreMatricula(@PathVariable String appnombre){
        return this.fichaMatriculaService.obtenerFichaPorSemestreMatricula(appnombre);
+    }
+
+    //lista de ficha de matricula 001
+
+    @GetMapping("/lista001")
+    public RestResponse listaFichaMatricula(){
+
+        List<fichaMatricula> FMatriculaList = this.fichaMatriculaService.listarFichaMatricula01();
+        try{
+            if (FMatriculaList.isEmpty()){
+                return new RestResponse(HttpStatus.NO_CONTENT.value(),"No se encontraron registros");
+            }else {
+                return new RestResponse(HttpStatus.OK.value(),"Registro de estudiantes ubicados",FMatriculaList);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return new RestResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),"Lamentamos el inconveniente, vuelva mas tarde");
+        }
     }
 }

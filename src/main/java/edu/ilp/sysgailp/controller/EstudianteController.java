@@ -93,4 +93,21 @@ public class EstudianteController {
     public List<Estudiante> listaestudiante(){
         return this.estudianteService.ListaEstudiantes();
     }
+    //lista de estudiantes 0002
+
+    @GetMapping("/lista01")
+    public RestResponse listaEstudiante(){
+
+        List<Estudiante>estudiateList = this.estudianteService.listarEstudiantes();
+        try{
+            if (estudiateList.isEmpty()){
+                return new RestResponse(HttpStatus.NO_CONTENT.value(),"No se encontraron registros");
+            }else {
+                return new RestResponse(HttpStatus.OK.value(),"Registro de estudiantes ubicados",estudiateList);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return new RestResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),"Lamentamos el inconveniente, vuelva mas tarde");
+        }
+    }
 }

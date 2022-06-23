@@ -59,6 +59,11 @@ public class EstudianteServiceImpl implements IEstudianteService {
 
     }
 
+    @Override
+    public List<Estudiante> listarEstudiantes() {
+        return this.estudianteDao.findAll();
+    }
+
     //@Override
     //public Estudiante obtenerEstudiantePorApellidoNOM(String apenom) {
         //return this.estudianteDao.obtenerEstudiantePorApellidoNOM(apenom);

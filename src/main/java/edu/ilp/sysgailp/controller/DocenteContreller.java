@@ -4,6 +4,7 @@ package edu.ilp.sysgailp.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.ilp.sysgailp.entity.Docente;
+import edu.ilp.sysgailp.entity.Escuela;
 import edu.ilp.sysgailp.payload.RestResponse;
 import edu.ilp.sysgailp.service.IEDocenteServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,5 +75,22 @@ public class DocenteContreller {
     @GetMapping("/listarByAppnombre/{appnombre}")
     public List<Docente> listarPorApellidoNombre(@PathVariable String appnombre){
         return this.docenteServicio.obtenerDocentePorApellidoNOM(appnombre);
+    }
+    //Listar Docete 001
+
+    @GetMapping("/lista01")
+    public RestResponse listaDocente(){
+
+        List<Docente> docenteList = this.docenteServicio.listarDocente01();
+        try{
+            if (docenteList.isEmpty()){
+                return new RestResponse(HttpStatus.NO_CONTENT.value(),"No se encontraron registros");
+            }else {
+                return new RestResponse(HttpStatus.OK.value(),"Registro de estudiantes ubicados",docenteList);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return new RestResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),"Lamentamos el inconveniente, vuelva mas tarde");
+        }
     }
 }

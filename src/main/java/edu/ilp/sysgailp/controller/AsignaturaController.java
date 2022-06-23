@@ -3,6 +3,7 @@ package edu.ilp.sysgailp.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.ilp.sysgailp.entity.Asignatura;
+import edu.ilp.sysgailp.entity.Escuela;
 import edu.ilp.sysgailp.payload.RestResponse;
 import edu.ilp.sysgailp.service.IAsignaturaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +22,10 @@ public class AsignaturaController {
     private ObjectMapper objectMapper;
 
     //listar Asignatura
-    @GetMapping("/listaAsignatura")
-    public List<Asignatura> listaAsignatura(){
-        return this.asignaturaService.ListaAsignatura2022();
-    }
+    //@GetMapping("/listaAsignatura")
+    //public List<Asignatura> listaAsignatura(){
+       // return this.asignaturaService.ListaAsignatura2022();
+   // }
 
     //listar Asignatura por curso
     @GetMapping("/listaAsignatura2022")
@@ -62,5 +63,23 @@ public class AsignaturaController {
         this.asignaturaService.guardarAsignatura(asignatura);
 
         return "Datos del Asignatura se actualizó correctamente";
+    }
+
+    //lista de asignatura 001
+
+    @GetMapping("/lista01")
+    public RestResponse listaAsignatura(){
+
+        List<Asignatura> asignaturaList = this.asignaturaService.listarAsignatura();
+        try{
+            if (asignaturaList.isEmpty()){
+                return new RestResponse(HttpStatus.NO_CONTENT.value(),"No se encontraron registros");
+            }else {
+                return new RestResponse(HttpStatus.OK.value(),"Registro de estudiantes ubicados",asignaturaList);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return new RestResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(),"Lamentamos el inconveniente, vuelva mas tarde");
+        }
     }
 }

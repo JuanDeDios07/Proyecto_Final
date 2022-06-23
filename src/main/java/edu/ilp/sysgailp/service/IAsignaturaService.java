@@ -1,6 +1,8 @@
 package edu.ilp.sysgailp.service;
 
 import edu.ilp.sysgailp.entity.Asignatura;
+import edu.ilp.sysgailp.entity.Escuela;
+
 import java.util.List;
 
 public interface IAsignaturaService {
@@ -16,4 +18,6 @@ public interface IAsignaturaService {
 
     //eliminar un Asignatura de la BD
     void eliminarUnaAsignatura(Long idasignatura);
+
+    List<Asignatura> listarAsignatura();
 }

@@ -41,5 +41,10 @@ public class DocenteServiceImpl implements IEDocenteServicio {
 
     }
 
+    @Override
+    public List<Docente> listarDocente01() {
+        return this.docenteDao.findAll();
+    }
+
 
 }

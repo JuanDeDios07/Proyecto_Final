@@ -1,6 +1,7 @@
 package edu.ilp.sysgailp.service;
 
 import edu.ilp.sysgailp.entity.Docente;
+import edu.ilp.sysgailp.entity.Escuela;
 import edu.ilp.sysgailp.entity.fichaMatricula;
 
 import java.util.List;
@@ -20,4 +21,7 @@ public interface IFicha_MatriculaService {
 
     //Listar Ficha-M semestre o matricula
     List<fichaMatricula> obtenerFichaPorSemestreMatricula(String apenom);
+
+    //lista de matricula 0001
+    List<fichaMatricula> listarFichaMatricula01();
 }

@@ -33,4 +33,9 @@ public class AsignaturaServiceImpl implements IAsignaturaService {
         this.asignaturaDao.deleteById(idasignatura);
         //this.administrativoDao.deleteById(idadministrativo);
     }
+
+    @Override
+    public List<Asignatura> listarAsignatura() {
+        return this.asignaturaDao.findAll();
+    }
 }

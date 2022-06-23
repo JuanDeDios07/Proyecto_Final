@@ -40,4 +40,9 @@ public class Ficha_MatriculaServiceImpl implements IFicha_MatriculaService {
     public List<edu.ilp.sysgailp.entity.fichaMatricula> obtenerFichaPorSemestreMatricula(String apenom) {
         return this.fichaMatricula.obtenerFichaPorSemestreMatricula(apenom);
     }
+
+    @Override
+    public List<edu.ilp.sysgailp.entity.fichaMatricula> listarFichaMatricula01() {
+        return this.fichaMatricula.findAll();
+    }
 }

@@ -1,6 +1,7 @@
 package edu.ilp.sysgailp.service;
 
 import edu.ilp.sysgailp.entity.Docente;
+import edu.ilp.sysgailp.entity.Escuela;
 
 import java.util.List;
 
@@ -20,4 +21,8 @@ public interface IEDocenteServicio {
 
     //Docente obtenerDocentePorApellidoNOM(String apenom);
     List<Docente> obtenerDocentePorApellidoNOM(String apenom);
+
+    //lista de docente 001
+
+    List<Docente> listarDocente01();
 }
